@@ -20,6 +20,7 @@ namespace GridLayoutPrueba
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity, ColorPickerDialog.IOnColorSelectedListener, Com.Wdullaer.Materialdatetimepicker.Date.DatePickerDialog.IOnDateSetListener
     {
+        //Git
         //Estatico
         //GridLayout grid_layout;
         TextView txt_actual;
