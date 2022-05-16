@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"	
+	>	
+	<ScrollView	
+		android:paddingTop="40dp"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:paddingLeft ="40dp"
+		android:paddingRight ="3dp" 
+		android:background="@android:color/holo_blue_light">
+
+		<HorizontalScrollView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:paddingTop="30dp"
+			android:background="@android:color/holo_green_dark"
+			android:id="@+id/hscroll"
+			>
+         
+	       <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"    
+               
+				android:id="@+id/grid_layout">
+    
+           </GridLayout>
+	     
+		</HorizontalScrollView>
+	</ScrollView>
+
+
+	<LinearLayout
+        android:id="@+id/admin_mapeo_bodega_seleccion_bodega"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:visibility="visible"      
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/txt_columna"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+				android:layout_weight="0.5"
+				android:inputType="number"
+                android:layout_margin="7dp"
+				android:hint="Columna"
+                 />
+			<EditText
+                android:id="@+id/txt_fila"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+				android:layout_weight="0.5"
+                android:layout_margin="7dp"
+				android:inputType="number"
+				android:hint="Fila"
+                 />
+			<Button
+				android:layout_width="0dp"
+                android:layout_height="match_parent"
+				android:layout_weight="0.5"
+                android:layout_margin="7dp"
+				android:text="Generar"
+				android:id="@+id/btn_generar"
+			    />
+
+
+			<Button
+				android:layout_width="0dp"
+                android:layout_height="match_parent"
+				android:layout_weight="0.5"
+                android:layout_margin="7dp"
+				android:text="Colorear"
+				android:id="@+id/btn_colorear_seleccion"
+			    />
+
+			<Button
+				android:layout_width="0dp"
+                android:layout_height="match_parent"
+				android:layout_weight="0.5"
+                android:layout_margin="7dp"
+				android:text="DatePicker"
+				android:id="@+id/btn_datepicker"
+			    />
+            
+        </LinearLayout>
+    </LinearLayout>
+	
+</RelativeLayout>
