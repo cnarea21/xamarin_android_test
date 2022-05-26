@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using Android.Icu.Util;
 using Com.Wdullaer.Materialdatetimepicker.Date;
 using System.Linq;
+using AlertDialog = Android.App.AlertDialog;
 
 namespace GridLayoutPrueba
 {
@@ -29,7 +30,7 @@ namespace GridLayoutPrueba
         //Dinamico
         HorizontalScrollView hscroll;
 
-        EditText txt_columna, txt_fila;
+        EditText txt_columna, txt_fila , txt_ancho_cuadro , txt_alto_cuadro;
         Button btn_generar, btn_colorear_seleccion, btn_datepicker;
 
         List<TextView> ls_seleccionados = new List<TextView>();
@@ -51,6 +52,8 @@ namespace GridLayoutPrueba
             btn_generar = FindViewById<Button>(Resource.Id.btn_generar);
             txt_columna = FindViewById<EditText>(Resource.Id.txt_columna);
             txt_fila = FindViewById<EditText>(Resource.Id.txt_fila);
+            txt_ancho_cuadro = FindViewById<EditText>(Resource.Id.txt_ancho_cuadro);
+            txt_alto_cuadro = FindViewById<EditText>(Resource.Id.txt_alto_cuadro);
             btn_colorear_seleccion = FindViewById<Button>(Resource.Id.btn_colorear_seleccion);
             btn_datepicker = FindViewById<Button>(Resource.Id.btn_datepicker);
 
@@ -62,6 +65,8 @@ namespace GridLayoutPrueba
 
             txt_columna.Text = "10";
             txt_fila.Text = "15";
+            txt_ancho_cuadro.Text = "80";
+            txt_alto_cuadro.Text = "50";
             //Estatico
 
             //int columnas = 50;
@@ -138,9 +143,54 @@ namespace GridLayoutPrueba
         
         private void Btn_generar_Click(object sender, EventArgs e) {
 
-            if (txt_fila.Text.Trim() ==string.Empty && txt_columna.Text.Trim() == string.Empty)
+            GridLayout grid = (GridLayout) hscroll.GetChildAt(0);
+          
+            if (grid.ChildCount > 0)
+            {
+                var dlgAlert = (new AlertDialog.Builder(this)).Create();
+                dlgAlert.SetMessage("¿Desea volver a generar la cuadrícula?");
+                dlgAlert.SetTitle("¡Advertencia!");
+                dlgAlert.SetButton("Confirmar", (aceptar, evento) =>
+                {
+                    Generar_Cuadricula();
+                });
+                dlgAlert.SetButton2("Cancelar", (cancelar, evento) =>
+                {
+
+                    dlgAlert.Dismiss();
+                });
+
+                dlgAlert.Show();
+            }
+            else
+            {
+                Generar_Cuadricula();
+            }
+
+           
+
+
+           
+       
+        }
+
+
+        private void Btn_colorear_seleccion_Click(object sender, EventArgs e)
+        {
+           ColorPickerDialog dialog = new ColorPickerDialog(this, color_actual, this);
+
+            dialog.Show();
+        }
+
+        private void Generar_Cuadricula()
+        {
+            if (txt_fila.Text.Trim() == string.Empty || txt_columna.Text.Trim() == string.Empty)
             {
                 Toast.MakeText(this, "Ingrese número de filas y columnas", ToastLength.Long).Show();
+            }
+            if (txt_ancho_cuadro.Text.Trim() == string.Empty || txt_alto_cuadro.Text.Trim() == string.Empty)
+            {
+                Toast.MakeText(this, "Ingrese ancho y alto de cuadro", ToastLength.Long).Show();
             }
 
             else
@@ -153,6 +203,9 @@ namespace GridLayoutPrueba
                 int filas = Int32.Parse(txt_fila.Text);
                 int cuadricula = columnas * filas;
 
+                int ancho_cuadro = Int32.Parse(txt_ancho_cuadro.Text);
+                int alto_cuadro = Int32.Parse(txt_alto_cuadro.Text);
+
                 grid_layout.ColumnCount = columnas;
                 grid_layout.RowCount = filas;
 
@@ -163,8 +216,8 @@ namespace GridLayoutPrueba
                     //text_view.Text = i.ToString();
                     text_view.Text = "";
                     text_view.Id = i;
-                    text_view.SetWidth(80);
-                    text_view.SetHeight(50);
+                    text_view.SetWidth(ancho_cuadro);
+                    text_view.SetHeight(alto_cuadro);
                     text_view.Gravity = Android.Views.GravityFlags.Center;
                     text_view.SetTextColor(Color.Blue);
                     //text_view.Hint = "H1";
@@ -285,15 +338,7 @@ namespace GridLayoutPrueba
 
                 }
             }
-       
-        }
 
-
-        private void Btn_colorear_seleccion_Click(object sender, EventArgs e)
-        {
-           ColorPickerDialog dialog = new ColorPickerDialog(this, color_actual, this);
-
-            dialog.Show();
         }
 
         public void OnColorSelected(int color)

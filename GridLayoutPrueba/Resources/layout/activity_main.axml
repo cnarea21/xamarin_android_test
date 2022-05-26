@@ -5,58 +5,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"	
 	>	
-	<ScrollView	
-		android:paddingTop="40dp"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:paddingLeft ="40dp"
-		android:paddingRight ="3dp" 
-		android:background="@android:color/holo_blue_light">
-
-		<HorizontalScrollView
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:paddingTop="30dp"
-			android:background="@android:color/holo_green_dark"
-			android:id="@+id/hscroll"
-			>
-         
-	       <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"    
-               
-				android:id="@+id/grid_layout">
-    
-           </GridLayout>
-	     
-		</HorizontalScrollView>
-	</ScrollView>
+	
 
 
 	<LinearLayout
         android:id="@+id/admin_mapeo_bodega_seleccion_bodega"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="match_parent"
         android:visibility="visible"      
-        android:orientation="horizontal">
-        <LinearLayout
+        android:orientation="vertical">
+
+		<LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
+			<TextView
+				android:text="C"
+				android:gravity="center"
+				android:layout_width="0dp"
+                android:layout_height="match_parent"
+				android:layout_weight="0.1"
+                />
             <EditText
                 android:id="@+id/txt_columna"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-				android:layout_weight="0.5"
+				android:layout_weight="0.4"
 				android:inputType="number"
                 android:layout_margin="7dp"
 				android:hint="Columna"
                  />
+			<TextView
+				android:text="F"
+				android:gravity="center"
+				android:layout_width="0dp"
+                android:layout_height="match_parent"
+				android:layout_weight="0.1"
+                />
 			<EditText
                 android:id="@+id/txt_fila"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-				android:layout_weight="0.5"
+				android:layout_weight="0.4"
                 android:layout_margin="7dp"
 				android:inputType="number"
 				android:hint="Fila"
@@ -64,7 +54,7 @@
 			<Button
 				android:layout_width="0dp"
                 android:layout_height="match_parent"
-				android:layout_weight="0.5"
+				android:layout_weight="0.45"
                 android:layout_margin="7dp"
 				android:text="Generar"
 				android:id="@+id/btn_generar"
@@ -90,6 +80,71 @@
 			    />
             
         </LinearLayout>
+		<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+			android:layout_marginRight="120dp"
+            android:orientation="horizontal">
+			<TextView
+				android:text="Ancho Cuadro"
+				android:gravity="center"
+				android:layout_width="0dp"
+                android:layout_height="match_parent"
+				android:layout_weight="0.3"
+				
+                />
+            <EditText
+                android:id="@+id/txt_ancho_cuadro"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+				android:layout_weight="0.2"
+				android:inputType="number"
+				android:gravity="center"              
+				android:hint="Ancho"
+                 />
+			<TextView
+				android:text="Alto Cuadro"
+				android:gravity="center"
+				android:layout_width="0dp"
+                android:layout_height="match_parent"
+				android:layout_weight="0.3"
+                />
+			<EditText
+                android:id="@+id/txt_alto_cuadro"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+				android:layout_weight="0.2"
+                android:gravity="center"
+				android:inputType="number"
+				android:hint="Alto"
+                 />
+		</LinearLayout>
+
+        <ScrollView	
+		android:paddingTop="40dp"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:paddingLeft ="40dp"
+		android:paddingRight ="3dp" 
+		android:background="@android:color/holo_blue_light">
+
+		<HorizontalScrollView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:paddingTop="30dp"		
+			android:id="@+id/hscroll"
+			>
+         
+	       <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"    
+               
+				android:id="@+id/grid_layout">
+    
+           </GridLayout>
+	     
+		</HorizontalScrollView>
+	</ScrollView>
     </LinearLayout>
 	
 </RelativeLayout>

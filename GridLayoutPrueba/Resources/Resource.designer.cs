@@ -3941,34 +3941,40 @@ namespace GridLayoutPrueba
 			public const int transition_transform = 2131230934;
 			
 			// aapt resource value: 0x7F0800D7
-			public const int txt_columna = 2131230935;
+			public const int txt_alto_cuadro = 2131230935;
 			
 			// aapt resource value: 0x7F0800D8
-			public const int txt_fila = 2131230936;
+			public const int txt_ancho_cuadro = 2131230936;
 			
 			// aapt resource value: 0x7F0800D9
-			public const int uniform = 2131230937;
+			public const int txt_columna = 2131230937;
 			
 			// aapt resource value: 0x7F0800DA
-			public const int unlabeled = 2131230938;
+			public const int txt_fila = 2131230938;
 			
 			// aapt resource value: 0x7F0800DB
-			public const int up = 2131230939;
+			public const int uniform = 2131230939;
 			
 			// aapt resource value: 0x7F0800DC
-			public const int useLogo = 2131230940;
+			public const int unlabeled = 2131230940;
 			
 			// aapt resource value: 0x7F0800DD
-			public const int view_offset_helper = 2131230941;
+			public const int up = 2131230941;
 			
 			// aapt resource value: 0x7F0800DE
-			public const int visible = 2131230942;
+			public const int useLogo = 2131230942;
 			
 			// aapt resource value: 0x7F0800DF
-			public const int withText = 2131230943;
+			public const int view_offset_helper = 2131230943;
 			
 			// aapt resource value: 0x7F0800E0
-			public const int wrap_content = 2131230944;
+			public const int visible = 2131230944;
+			
+			// aapt resource value: 0x7F0800E1
+			public const int withText = 2131230945;
+			
+			// aapt resource value: 0x7F0800E2
+			public const int wrap_content = 2131230946;
 			
 			static Id()
 			{
